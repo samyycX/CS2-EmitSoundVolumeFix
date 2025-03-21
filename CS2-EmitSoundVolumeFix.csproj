@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>CS2_EmitSoundVolumeFix</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutDir>$(MSBuildProjectDirectory)\publish\addons\counterstrikesharp\plugins\CS2-EmitSoundVolumeFix</OutDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CounterStrikeSharp.API" Version="1.0.307" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="gamedata\CS2-EmitSoundVolumeFix.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>..\..\..\counterstrikesharp\gamedata\CS2-EmitSoundVolumeFix.json</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+</Project>
