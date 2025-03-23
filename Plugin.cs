@@ -12,9 +12,9 @@ public class EmitSoundVolumeFixPlugin : BasePlugin
 
     // Found by searching string "CSoundOpGameSystem::SetSoundEventParam: Failed cached soundevent param message\n"
     public MemoryFunctionWithReturn<nint, nint, nint, uint, nint, uint, uint, byte> CSoundOpGameSystem_SetSoundEventParam_Windows = 
-        new(GameData.GetSignature("CSoundOpGameSystem_SetSoundEventParam"));
+        new(GameData.GetSignature("CSoundOpGameSystem_SetSoundEventParam_2"));
     public MemoryFunctionWithReturn<int, int, nint, uint, nint, short, uint, nint> CSoundOpGameSystem_SetSoundEventParam_Linux = 
-        new(GameData.GetSignature("CSoundOpGameSystem_SetSoundEventParam"));
+        new(GameData.GetSignature("CSoundOpGameSystem_SetSoundEventParam_2"));
 
 
     public HookResult OnSetSoundEventParam(DynamicHook hook)
