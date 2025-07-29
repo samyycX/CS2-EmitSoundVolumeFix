@@ -7,7 +7,7 @@ namespace EmitSoundVolumeFix;
 public class EmitSoundVolumeFixPlugin : BasePlugin
 {
     public override string ModuleName => "EmitSoundVolumeFix";
-    public override string ModuleVersion => "1.0.0";
+    public override string ModuleVersion => "1.0.1";
     public override string ModuleAuthor => "samyyc";
 
     // Found by searching string "CSoundOpGameSystem::SetSoundEventParam: Failed cached soundevent param message\n"
