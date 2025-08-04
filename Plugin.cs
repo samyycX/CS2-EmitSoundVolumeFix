@@ -16,20 +16,22 @@ public class EmitSoundVolumeFixPlugin : BasePlugin
     public MemoryFunctionWithReturn<int, int, nint, uint, nint, short, uint, nint> CSoundOpGameSystem_SetSoundEventParam_Linux = 
         new(GameData.GetSignature("CSoundOpGameSystem_SetSoundEventParam_2"));
 
-
+    public int paramIndex = 3;
     public HookResult OnSetSoundEventParam(DynamicHook hook)
     {
-        var hash = hook.GetParam<uint>(3);
+        var hash = hook.GetParam<uint>(paramIndex);
         if (hash == 0x2D8464AF) {
-            hook.SetParam(3, 0xBD6054E9);
+            hook.SetParam(paramIndex, 0xBD6054E9);
         }
         return HookResult.Continue;
     }
     public override void Load(bool hotReload)
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
+            paramIndex = 3;
             CSoundOpGameSystem_SetSoundEventParam_Windows.Hook(OnSetSoundEventParam, HookMode.Pre);
         } else {
+            paramIndex = 2;
             CSoundOpGameSystem_SetSoundEventParam_Linux.Hook(OnSetSoundEventParam, HookMode.Pre);
         }
     }
